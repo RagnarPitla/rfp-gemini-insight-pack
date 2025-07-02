@@ -1,20 +1,26 @@
 import React, { useCallback, useState } from 'react';
-import { Upload, File, X, CheckCircle } from 'lucide-react';
+import { Upload, File, X, CheckCircle, Cloud } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { googleDriveService } from '@/services/googleDriveService';
+import { useToast } from '@/hooks/use-toast';
 
 interface FileUploadProps {
   onFileSelect: (file: File) => void;
   selectedFile: File | null;
   onRemoveFile: () => void;
+  isGoogleDriveConnected: boolean;
 }
 
 export const FileUpload: React.FC<FileUploadProps> = ({
   onFileSelect,
   selectedFile,
   onRemoveFile,
+  isGoogleDriveConnected,
 }) => {
+  const { toast } = useToast();
   const [isDragOver, setIsDragOver] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
 
   const handleDragOver = useCallback((e: React.DragEvent) => {
     e.preventDefault();
@@ -27,7 +33,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
   }, []);
 
   const handleDrop = useCallback(
-    (e: React.DragEvent) => {
+    async (e: React.DragEvent) => {
       e.preventDefault();
       setIsDragOver(false);
       
@@ -35,22 +41,50 @@ export const FileUpload: React.FC<FileUploadProps> = ({
       const file = files[0];
       
       if (file && isValidFileType(file)) {
-        onFileSelect(file);
+        await handleFileUpload(file);
       }
     },
-    [onFileSelect]
+    [isGoogleDriveConnected]
   );
 
   const handleFileChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
+    async (e: React.ChangeEvent<HTMLInputElement>) => {
       const file = e.target.files?.[0];
       if (file && isValidFileType(file)) {
-        onFileSelect(file);
+        await handleFileUpload(file);
       }
       e.target.value = '';
     },
-    [onFileSelect]
+    [isGoogleDriveConnected]
   );
+
+  const handleFileUpload = async (file: File) => {
+    onFileSelect(file);
+    
+    if (isGoogleDriveConnected) {
+      setIsUploading(true);
+      try {
+        const fileId = await googleDriveService.uploadFile(file);
+        toast({
+          title: "File uploaded to Google Drive",
+          description: `${file.name} has been saved to your RFP folder`,
+        });
+      } catch (error) {
+        toast({
+          title: "Upload to Google Drive failed",
+          description: "File selected locally, but Google Drive upload failed",
+          variant: "destructive",
+        });
+      } finally {
+        setIsUploading(false);
+      }
+    } else {
+      toast({
+        title: "File selected",
+        description: `${file.name} is ready for analysis`,
+      });
+    }
+  };
 
   const isValidFileType = (file: File) => {
     const validTypes = [
@@ -81,6 +115,12 @@ export const FileUpload: React.FC<FileUploadProps> = ({
               <p className="font-medium text-foreground">{selectedFile.name}</p>
               <p className="text-sm text-muted-foreground">
                 {formatFileSize(selectedFile.size)}
+                {isGoogleDriveConnected && (
+                  <span className="ml-2 inline-flex items-center text-primary">
+                    <Cloud className="h-3 w-3 mr-1" />
+                    Uploaded to Drive
+                  </span>
+                )}
               </p>
             </div>
           </div>
@@ -115,6 +155,11 @@ export const FileUpload: React.FC<FileUploadProps> = ({
         </h3>
         <p className="text-muted-foreground mb-4">
           Drag and drop your RFP file here, or click to browse
+          {isGoogleDriveConnected && (
+            <span className="block text-primary text-sm mt-1">
+              Files will be automatically saved to Google Drive
+            </span>
+          )}
         </p>
         <p className="text-sm text-muted-foreground mb-6">
           Supports PDF, Excel (.xlsx), and PowerPoint (.pptx) files
@@ -128,10 +173,25 @@ export const FileUpload: React.FC<FileUploadProps> = ({
           onChange={handleFileChange}
         />
         <label htmlFor="file-upload">
-          <Button variant="premium" size="lg" className="cursor-pointer" asChild>
+          <Button 
+            variant="premium" 
+            size="lg" 
+            className="cursor-pointer" 
+            asChild
+            disabled={isUploading}
+          >
             <span>
-              <File className="mr-2 h-4 w-4" />
-              Upload your RFP
+              {isUploading ? (
+                <>
+                  <div className="animate-spin h-4 w-4 border-2 border-primary-foreground border-t-transparent rounded-full mr-2" />
+                  Uploading...
+                </>
+              ) : (
+                <>
+                  <File className="mr-2 h-4 w-4" />
+                  Upload your RFP
+                </>
+              )}
             </span>
           </Button>
         </label>
