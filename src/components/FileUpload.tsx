@@ -131,7 +131,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
           <Button variant="premium" size="lg" className="cursor-pointer" asChild>
             <span>
               <File className="mr-2 h-4 w-4" />
-              Select File
+              Upload your RFP
             </span>
           </Button>
         </label>
