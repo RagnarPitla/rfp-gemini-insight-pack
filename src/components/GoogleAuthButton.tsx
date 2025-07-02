@@ -49,9 +49,20 @@ export const GoogleAuthButton: React.FC<GoogleAuthButtonProps> = ({ onAuthChange
       onAuthChange(isSignedIn);
     } catch (error) {
       console.error('Google Drive initialization failed:', error);
+      setIsInitialized(false);
+      setShowConfig(true);
+      
+      // Better error message based on the error type
+      let errorMessage = "Please check your Google API credentials";
+      if (error && typeof error === 'object' && 'error' in error) {
+        if (error.error === 'idpiframe_initialization_failed') {
+          errorMessage = `Please add this domain to your OAuth2 authorized origins: ${window.location.origin}`;
+        }
+      }
+      
       toast({
         title: "Initialization failed",
-        description: "Please check your Google API credentials",
+        description: errorMessage,
         variant: "destructive",
       });
     }
