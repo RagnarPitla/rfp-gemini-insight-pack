@@ -64,29 +64,34 @@ const Index = () => {
       // Simulate API call - in real implementation, this would call your backend
       await new Promise(resolve => setTimeout(resolve, 3000));
       
-      // Mock results for demonstration
+      // Mock results enhanced with competitive intelligence
       const mockResults: AnalysisResult = {
-        executiveSummary: "Based on the analysis of the customer's RFP, we've identified key opportunities for Dynamics 365 F&O to address their manufacturing and supply chain requirements. The customer seeks to modernize their legacy ERP system with enhanced reporting capabilities, real-time inventory management, and improved financial controls.",
+        executiveSummary: "Based on comprehensive analysis of the customer's RFP and competitive landscape, we've identified strategic opportunities for Dynamics 365 F&O to address their manufacturing and supply chain requirements while positioning against incumbent solutions. The customer seeks to modernize their legacy ERP system with enhanced reporting capabilities, real-time inventory management, and improved financial controls, while facing competitive pressure from SAP and Oracle proposals.",
         keyRequirements: [
-          "Real-time inventory tracking and management",
-          "Advanced financial reporting and analytics", 
-          "Supply chain optimization and planning",
-          "Multi-location support and consolidation",
-          "Integration with existing CRM system",
-          "Mobile access for field operations"
+          "Real-time inventory tracking and management across multiple locations",
+          "Advanced financial reporting and analytics with regulatory compliance", 
+          "Supply chain optimization and demand planning capabilities",
+          "Multi-location support with centralized consolidation",
+          "Seamless integration with existing CRM and third-party systems",
+          "Mobile access for field operations and remote workforce",
+          "Competitive total cost of ownership against current SAP proposal",
+          "Proven implementation methodology with risk mitigation"
         ],
         d365Advantages: [
-          "Native integration with Microsoft ecosystem including Power BI, Office 365, and Azure",
-          "Industry-specific manufacturing modules with advanced planning capabilities",
-          "Cloud-first architecture ensuring scalability and reduced IT overhead",
-          "Built-in AI and machine learning for predictive analytics and demand forecasting",
-          "Comprehensive supply chain management with vendor collaboration portals"
+          "Unified Microsoft ecosystem integration (Power BI, Office 365, Teams, Azure) eliminates integration costs that SAP/Oracle require",
+          "Industry-specific manufacturing modules with AI-powered demand forecasting and supply chain insights",
+          "Cloud-first architecture with automatic updates vs. SAP's complex on-premise upgrade cycles",
+          "Power Platform low-code/no-code customization reduces long-term development costs by 60% vs. traditional ERP",
+          "Built-in sustainability reporting and ESG compliance features ahead of regulatory requirements",
+          "Transparent, predictable subscription pricing vs. SAP's complex licensing and maintenance fees"
         ],
         competitiveInsights: [
-          "Unlike SAP's complex customization requirements, D365 offers out-of-the-box functionality for 80% of business processes",
-          "Oracle's cloud transition costs are significantly higher than D365's transparent subscription model",
-          "NetSuite lacks the advanced manufacturing capabilities that D365 provides natively",
-          "D365's Power Platform integration provides no-code/low-code customization that competitors can't match"
+          "SAP S/4HANA migration costs average $2.5M more than D365 implementation due to code remediation requirements",
+          "Oracle's cloud transition has 40% higher failure rate compared to D365's proven migration methodology",
+          "NetSuite lacks advanced manufacturing planning - requires expensive third-party add-ons that D365 includes natively",
+          "D365's Power Platform integration provides competitive advantage that no other ERP vendor can match",
+          "Microsoft's $12B annual R&D investment in cloud and AI far exceeds SAP's $3.2B technology investment",
+          "Customer references show 25% faster D365 implementations vs. SAP due to pre-configured industry solutions"
         ],
         suggestedResponses: [
           {
@@ -135,8 +140,8 @@ const Index = () => {
       await new Promise(resolve => setTimeout(resolve, 2000));
       
       toast({
-        title: "Report saved successfully",
-        description: "The analysis report has been saved to your Google Drive",
+        title: "Report exported successfully",
+        description: "The competitive analysis report has been prepared for download",
       });
     } catch (error) {
       toast({
@@ -190,8 +195,8 @@ const Index = () => {
                 <span className="block text-primary">for Dynamics 365</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Leverage AI-powered analysis to generate comprehensive, competitive responses 
-                to Microsoft Dynamics 365 RFPs with confidence and precision.
+                Leverage AI-powered analysis with your competitive intelligence resources to generate 
+                comprehensive, strategically-positioned responses to Microsoft Dynamics 365 RFPs.
               </p>
               
               {/* Feature highlights */}
@@ -214,9 +219,9 @@ const Index = () => {
                 
                 <div className="flex flex-col items-center p-6 bg-card/50 backdrop-blur-sm rounded-lg border border-border/50">
                   <Cloud className="h-12 w-12 text-primary mb-4" />
-                  <h3 className="font-semibold text-foreground mb-2">Google Drive Integration</h3>
+                  <h3 className="font-semibold text-foreground mb-2">Competitive Data Resources</h3>
                   <p className="text-sm text-muted-foreground text-center">
-                    Automatically save RFPs and reports to your organized Google Drive folder
+                    Leverage your existing competitive data and industry-specific resources for precise positioning
                   </p>
                 </div>
               </div>
@@ -289,11 +294,11 @@ const Index = () => {
               </div>
               <div>
                 <h4 className="font-medium text-foreground mb-2">3. Generate Analysis</h4>
-                <p className="text-muted-foreground">AI processes the data and creates your response pack</p>
+                <p className="text-muted-foreground">AI processes the data with competitive intelligence and creates your response pack</p>
               </div>
               <div>
-                <h4 className="font-medium text-foreground mb-2">4. Save Report</h4>
-                <p className="text-muted-foreground">Export your comprehensive analysis to Google Drive</p>
+                <h4 className="font-medium text-foreground mb-2">4. Export Results</h4>
+                <p className="text-muted-foreground">Download your comprehensive competitive analysis and positioning guide</p>
               </div>
             </div>
           </Card>

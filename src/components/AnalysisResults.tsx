@@ -60,22 +60,22 @@ export const AnalysisResults: React.FC<AnalysisResultsProps> = ({
               </p>
             </div>
           </div>
-          <Button
-            variant="premium"
-            size="lg"
-            onClick={onSaveReport}
-            disabled={isSaving}
-            className="min-w-40"
-          >
-            {isSaving ? (
-              <>Saving...</>
-            ) : (
-              <>
-                <Save className="mr-2 h-4 w-4" />
-                Save Report
-              </>
-            )}
-          </Button>
+            <Button
+              variant="premium"
+              size="lg"
+              onClick={onSaveReport}
+              disabled={isSaving}
+              className="min-w-40"
+            >
+              {isSaving ? (
+                <>Exporting...</>
+              ) : (
+                <>
+                  <Download className="mr-2 h-4 w-4" />
+                  Export Report
+                </>
+              )}
+            </Button>
         </div>
       </Card>
 

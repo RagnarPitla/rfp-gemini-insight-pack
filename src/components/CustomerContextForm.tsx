@@ -116,25 +116,33 @@ export const CustomerContextForm: React.FC<CustomerContextFormProps> = ({
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="painPoints">Current Pain Points</Label>
+        <Label htmlFor="painPoints">About the Customer and Their Problems</Label>
         <Textarea
           id="painPoints"
-          placeholder="Describe current business challenges, system limitations, manual processes, integration issues, etc."
+          placeholder="Describe current business challenges, system limitations, manual processes, integration issues, competitive pressures, market dynamics, regulatory requirements, scalability concerns, digital transformation goals, operational inefficiencies, data silos, reporting gaps, user experience issues, compliance challenges, growth barriers, technology debt, vendor relationship problems, cost pressures, and any other strategic business pain points..."
           value={context.painPoints}
           onChange={(e) => updateContext('painPoints', e.target.value)}
-          className="min-h-24"
+          className="min-h-32"
         />
+        <p className="text-xs text-muted-foreground">
+          Include competitive landscape insights, current vendor relationships, budget constraints, timeline pressures, 
+          stakeholder concerns, change management challenges, technical requirements, and strategic business objectives.
+        </p>
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="additionalContext">Additional Context</Label>
+        <Label htmlFor="additionalContext">Competitive Intelligence & Resources</Label>
         <Textarea
           id="additionalContext"
-          placeholder="Any additional information about the customer, specific requirements, timeline, budget considerations, etc."
+          placeholder="Reference your competitive data, industry benchmarks, pricing intelligence, feature comparisons, customer success stories, implementation case studies, ROI calculations, total cost of ownership analysis, migration strategies, risk mitigation approaches, and any specialized resources or tools available for this opportunity..."
           value={context.additionalContext}
           onChange={(e) => updateContext('additionalContext', e.target.value)}
-          className="min-h-24"
+          className="min-h-32"
         />
+        <p className="text-xs text-muted-foreground">
+          Include available competitive battlecards, industry reports, analyst insights, customer references, 
+          partnership advantages, technical differentiators, and any proprietary data or tools that can strengthen the response.
+        </p>
       </div>
     </Card>
   );
