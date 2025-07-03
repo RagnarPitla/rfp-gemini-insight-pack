@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { CheckCircle, Download, Save } from 'lucide-react';
+import { HTMLExport } from '@/components/HTMLExport';
 
 interface AnalysisResult {
   executiveSummary: string;
@@ -187,6 +188,9 @@ export const AnalysisResults: React.FC<AnalysisResultsProps> = ({
           {results.riskAssessment}
         </p>
       </Card>
+
+      {/* HTML Export */}
+      <HTMLExport results={results} />
     </div>
   );
 };
