@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { FileUpload } from '@/components/FileUpload';
-import { GoogleAuthButton } from '@/components/GoogleAuthButton';
 import { CustomerContextForm, CustomerContext } from '@/components/CustomerContextForm';
 import { AnalysisResults, AnalysisResult } from '@/components/AnalysisResults';
 import { useToast } from '@/hooks/use-toast';
@@ -22,7 +21,7 @@ const Index = () => {
   });
   const [analysisResults, setAnalysisResults] = useState<AnalysisResult | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
-  const [isGoogleDriveConnected, setIsGoogleDriveConnected] = useState(false);
+  
   const [isSaving, setIsSaving] = useState(false);
 
   const handleFileSelect = (file: File) => {
@@ -236,11 +235,6 @@ const Index = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto space-y-8">
           
-          {/* Google Drive Connection */}
-          <GoogleAuthButton 
-            onAuthChange={setIsGoogleDriveConnected}
-          />
-
           {/* File Upload Section */}
           <Card className="p-8">
             <div className="mb-6">
@@ -256,7 +250,6 @@ const Index = () => {
               onFileSelect={handleFileSelect}
               selectedFile={selectedFile}
               onRemoveFile={handleRemoveFile}
-              isGoogleDriveConnected={isGoogleDriveConnected}
             />
           </Card>
 
