@@ -150,7 +150,7 @@ const Home = () => {
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl text-center">
           <Badge variant="outline" className="mb-6 text-primary border-primary/20">
-            AI-Powered RFP Solution for the AI ERP Era
+            AI-Powered RFP Solution for the AI business solutions
           </Badge>
           <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6">
             Win More ERP & CRM Customers with 
