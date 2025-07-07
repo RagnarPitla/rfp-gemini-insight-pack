@@ -84,6 +84,12 @@ const Home = () => {
       stat: <AnimatedCounter end={60} suffix="%" />,
       title: "RFPs AI-Assisted by 2026 (Gartner)",
       description: "Stay ahead of the competition with future-ready tech"
+    },
+    {
+      icon: Shield,
+      stat: <AnimatedCounter end={50} suffix="%" />,
+      title: "Fewer Compliance & Accuracy Errors (PwC)",
+      description: "AI-driven RFP tools reduce manual mistakes and ensure consistent, audit-ready responses"
     }
   ];
 
