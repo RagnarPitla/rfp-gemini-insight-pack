@@ -239,7 +239,7 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Card className="p-8 bg-gradient-to-br from-primary/5 to-primary-glow/5 border-primary/20">
-              <h3 className="text-2xl font-semibold text-foreground mb-4">Microsoft Ecosystem</h3>
+              <h3 className="text-2xl font-semibold text-foreground mb-4">Microsoft, N8N, OpenAI Ecosystem</h3>
               <ul className="space-y-2 text-muted-foreground">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary" />
@@ -247,11 +247,11 @@ const Home = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary" />
-                  Power Platform for workflow automation
+                  N8N for workflow automation
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary" />
-                  SharePoint for document management
+                  OpenAI for advanced AI capabilities
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary" />
