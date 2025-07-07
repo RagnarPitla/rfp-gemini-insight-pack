@@ -40,12 +40,17 @@ export const CustomerContextForm: React.FC<CustomerContextFormProps> = ({
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
-          <Label htmlFor="currentERP">Current ERP System</Label>
+          <Label htmlFor="currentERP">Current ERP/CRM System</Label>
           <Select onValueChange={(value) => updateContext('currentERP', value)}>
             <SelectTrigger>
-              <SelectValue placeholder="Select current ERP" />
+              <SelectValue placeholder="Select current ERP/CRM" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="bg-background border border-border shadow-lg">
+              <SelectItem value="salesforce">Salesforce</SelectItem>
+              <SelectItem value="d365-fno">Dynamics 365 F&O</SelectItem>
+              <SelectItem value="d365-ce">D365 CE</SelectItem>
+              <SelectItem value="d365-sales">D365 Sales</SelectItem>
+              <SelectItem value="d365-crm">D365 CRM</SelectItem>
               <SelectItem value="sap">SAP</SelectItem>
               <SelectItem value="oracle">Oracle</SelectItem>
               <SelectItem value="netsuite">NetSuite</SelectItem>
