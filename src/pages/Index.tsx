@@ -193,8 +193,11 @@ const Index = () => {
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
                 RFP Analysis Tool
-                <span className="block text-primary">for Dynamics 365</span>
+                <span className="block text-primary">for your ERP and CRM</span>
               </h1>
+              <p className="text-lg text-muted-foreground/80 mb-8 font-medium">
+                Dynamics 365 • SAP • Oracle • Salesforce • NetSuite • Workday
+              </p>
               <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
                 Leverage AI-powered analysis with your competitive intelligence resources to generate 
                 comprehensive, strategically-positioned responses to Microsoft Dynamics 365 RFPs.
