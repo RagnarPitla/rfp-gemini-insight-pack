@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Code2, Copy, Download } from 'lucide-react';
+import { Code2, Copy, Download, ExternalLink } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { AnalysisResult } from '@/components/AnalysisResults';
 
@@ -121,6 +121,19 @@ export const HTMLExport: React.FC<HTMLExportProps> = ({ results }) => {
     });
   };
 
+  const openHTMLInNewTab = () => {
+    const htmlContent = generateHTML();
+    const newWindow = window.open('', '_blank');
+    if (newWindow) {
+      newWindow.document.write(htmlContent);
+      newWindow.document.close();
+      toast({
+        title: "HTML Opened",
+        description: "Report opened in new tab",
+      });
+    }
+  };
+
   const downloadHTML = () => {
     const htmlContent = generateHTML();
     const blob = new Blob([htmlContent], { type: 'text/html' });
@@ -162,6 +175,13 @@ export const HTMLExport: React.FC<HTMLExportProps> = ({ results }) => {
                 Copy HTML
               </>
             )}
+          </Button>
+          <Button
+            variant="secondary"
+            onClick={openHTMLInNewTab}
+          >
+            <ExternalLink className="mr-2 h-4 w-4" />
+            Open in New Tab
           </Button>
           <Button
             variant="premium"
