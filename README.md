@@ -1,73 +1,200 @@
-# Welcome to your Lovable project
+# 🚀 Open Source RFP Agent for ERP & CRM
 
-## Project info
+An AI-powered RFP analysis tool designed to help you generate comprehensive, strategically-positioned responses to Microsoft Dynamics 365, SAP, Oracle, and other ERP/CRM RFPs. Built to move beyond traditional questionnaire responses toward expert-driven, solution-centric conversations.
 
-**URL**: https://lovable.dev/projects/722e2688-6be4-4a7d-a789-cf63cfa9ef2b
+## 🎯 What This Tool Does
 
-## How can I edit this code?
+Transform lengthy RFP documents into actionable competitive intelligence and response strategies. Instead of manually answering hundreds of questions, leverage AI to:
 
-There are several ways of editing your application.
+- **Analyze** customer requirements and pain points
+- **Generate** competitive positioning against SAP, Oracle, NetSuite
+- **Create** comprehensive response packs with implementation timelines
+- **Export** professional HTML reports for stakeholders
 
-**Use Lovable**
+## ✨ Key Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/722e2688-6be4-4a7d-a789-cf63cfa9ef2b) and start prompting.
+### 📄 Smart Document Processing
+- Upload RFP documents (PDF, Excel, PowerPoint)
+- AI-powered extraction of key requirements
+- Automatic identification of competitive threats
 
-Changes made via Lovable will be committed automatically to this repo.
+### 🎯 Customer Context Intelligence
+- Industry-specific analysis (Manufacturing, Finance, Healthcare, etc.)
+- Regional compliance considerations
+- Current ERP/CRM system assessment
+- Pain point identification and mapping
 
-**Use your preferred IDE**
+### 🧠 AI-Powered Analysis Engine
+- Executive summary generation
+- Risk assessment and mitigation strategies
+- Architecture recommendations
+- Implementation timeline planning
+- Competitive advantage positioning
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 📊 Professional Reporting
+- HTML export with professional styling
+- Responsive design for all devices
+- Printable reports for offline sharing
+- Real-time preview and editing
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 🏗️ Open Source & Extensible
+- MCP server integration for custom knowledge sources
+- Your data stays private and secure
+- Extensible architecture for custom integrations
 
-Follow these steps:
+## 🚀 Getting Started
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Prerequisites
+- Node.js 18+ and npm
+- Modern web browser
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Installation
 
-# Step 3: Install the necessary dependencies.
-npm i
+1. **Clone the repository**
+   ```bash
+   git clone <YOUR_GIT_URL>
+   cd rfp-analysis-tool
+   ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**
+   Navigate to `http://localhost:5173`
+
+## 🎮 How to Use
+
+### Step 1: Upload Your RFP Document
+- Navigate to the main analysis page
+- Drag and drop or select your RFP file
+- Supported formats: PDF, Excel (.xlsx), PowerPoint (.pptx)
+
+### Step 2: Add Customer Context
+Fill out the customer intelligence form:
+- **Current ERP/CRM**: What system they're using now
+- **Industry**: Manufacturing, Healthcare, Financial Services, etc.
+- **Region**: For compliance and regulatory considerations
+- **Company Size**: Employee count and revenue ranges
+- **Pain Points**: Current system limitations and challenges
+- **Additional Context**: Any other relevant information
+
+### Step 3: Generate Analysis
+- Click "Analyze & Generate Response Pack"
+- AI processes the document and context
+- Generates comprehensive competitive analysis
+
+### Step 4: Review and Export
+- Review the generated analysis sections:
+  - Executive Summary
+  - Key Requirements Identified
+  - Dynamics 365 Advantages
+  - Competitive Insights
+  - Suggested Responses
+  - Architecture Recommendations
+  - Implementation Timeline
+  - Risk Assessment
+- Export as professional HTML report
+- Save or share with your team
+
+## 📁 Project Structure
+
+```
+src/
+├── components/           # Reusable UI components
+│   ├── ui/              # shadcn/ui components
+│   ├── AnalysisResults.tsx    # Results display component
+│   ├── CustomerContextForm.tsx # Customer input form
+│   ├── FileUpload.tsx         # Document upload component
+│   └── HTMLExport.tsx         # Report generation component
+├── pages/               # Application pages
+│   ├── Index.tsx        # Main analysis tool
+│   ├── Home.tsx         # Landing page
+│   ├── OpenSource.tsx   # Open source information
+│   └── Slides.tsx       # Presentation mode
+├── hooks/               # Custom React hooks
+├── lib/                 # Utility functions
+└── integrations/        # Third-party integrations
+    └── supabase/        # Database integration
 ```
 
-**Edit a file directly in GitHub**
+## 🛠️ Technology Stack
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- **Frontend**: React 18 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS + shadcn/ui
+- **Database**: Supabase (PostgreSQL)
+- **Deployment**: Lovable Platform
+- **Icons**: Lucide React
+- **Animations**: Tailwind CSS animations
 
-**Use GitHub Codespaces**
+## 🔧 Configuration
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Environment Setup
+The application uses Supabase for backend services. Configuration is handled through the Supabase integration.
 
-## What technologies are used for this project?
+### Customization
+- **Design System**: Modify `src/index.css` and `tailwind.config.ts`
+- **Components**: All UI components in `src/components/ui/`
+- **Analysis Logic**: Extend `src/components/AnalysisResults.tsx`
 
-This project is built with:
+## 🤝 Contributing
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+We welcome contributions! Here's how you can help:
 
-## How can I deploy this project?
+1. **Testing**: Try the tool with real RFP documents
+2. **Knowledge Integration**: Help improve industry-specific analysis
+3. **Feature Development**: Add new analysis capabilities
+4. **Documentation**: Improve guides and examples
 
-Simply open [Lovable](https://lovable.dev/projects/722e2688-6be4-4a7d-a789-cf63cfa9ef2b) and click on Share -> Publish.
+### Development Workflow
 
-## Can I connect a custom domain to my Lovable project?
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
 
-Yes, you can!
+## 🔮 Roadmap
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Phase 1: Core Features (Current)
+- ✅ Document upload and processing
+- ✅ Customer context form
+- ✅ AI-powered analysis
+- ✅ HTML report generation
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### Phase 2: Enhanced Intelligence
+- 🔄 MCP server integration
+- 🔄 Custom knowledge source connections
+- 🔄 Industry-specific templates
+- 🔄 Multi-language support
+
+### Phase 3: Collaboration Features
+- 📋 Team workspaces
+- 📋 Response collaboration
+- 📋 Approval workflows
+- 📋 Integration with CRM systems
+
+## 📞 Support & Contact
+
+- **Issues**: Open a GitHub issue for bugs or feature requests
+- **Discussions**: Use GitHub Discussions for questions
+- **LinkedIn**: [Connect with the creator](https://www.linkedin.com/in/ragnarpitla)
+
+## 📄 License
+
+This project is open source. See the LICENSE file for details.
+
+## 🙏 Acknowledgments
+
+Built for the ERP and CRM community who believe that AI-first solutions require expert conversations, not just faster responses.
+
+---
+
+**Ready to transform your RFP process?** Start by uploading your first document and see how AI can accelerate your competitive positioning.
