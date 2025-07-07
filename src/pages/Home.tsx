@@ -153,7 +153,7 @@ const Home = () => {
             AI-Powered RFP Solution for the AI ERP Era
           </Badge>
           <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6">
-            Win More ERP Customers with 
+            Win More ERP & CRM Customers with 
             <span className="block text-primary mt-2">Intelligent RFP Automation</span>
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
