@@ -17,7 +17,10 @@ import {
   Target,
   CheckCircle,
   ArrowRight,
-  Sparkles
+  Sparkles,
+  Rocket,
+  RefreshCw,
+  DollarSign
 } from 'lucide-react';
 
 const Home = () => {
@@ -53,16 +56,34 @@ const Home = () => {
 
   const benefits = [
     {
-      icon: Clock,
+      icon: Rocket,
       stat: <AnimatedCounter end={90} suffix="%" />,
-      title: "Faster Completion",
-      description: "Reduce RFP completion time from weeks to days"
+      title: "Faster RFP Completion",
+      description: "Cut response time from weeks to days"
+    },
+    {
+      icon: RefreshCw,
+      stat: <AnimatedCounter end={2} suffix=".5X" />,
+      title: "More Submissions", 
+      description: "Handle more RFPs with the same team"
     },
     {
       icon: TrendingUp,
-      stat: <AnimatedCounter end={2} suffix=".5X" />,
-      title: "More Submissions", 
-      description: "Handle significantly more RFP opportunities"
+      stat: <AnimatedCounter end={35} suffix="%" />,
+      title: "Higher Win Rates (BCG)",
+      description: "AI-automated responses improve proposal precision"
+    },
+    {
+      icon: DollarSign,
+      stat: <AnimatedCounter end={3} suffix="X" />,
+      title: "ROI Within 12 Months (G2/Forrester)",
+      description: "Reduce costs, boost efficiency, and win more deals"
+    },
+    {
+      icon: Brain,
+      stat: <AnimatedCounter end={60} suffix="%" />,
+      title: "RFPs AI-Assisted by 2026 (Gartner)",
+      description: "Stay ahead of the competition with future-ready tech"
     }
   ];
 
@@ -148,16 +169,21 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Benefits Stats */}
+      {/* Industry-Validated Performance */}
       <section className="py-16 px-4 bg-gradient-to-r from-primary/5 to-primary-glow/5">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              Industry-Validated Performance
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {benefits.map((benefit, index) => (
-              <Card key={index} className="p-6 text-center bg-card/50 backdrop-blur-sm border-border/50">
+              <Card key={index} className="p-6 text-center bg-card/50 backdrop-blur-sm border-border/50 hover:shadow-lg transition-shadow">
                 <benefit.icon className="h-10 w-10 text-primary mx-auto mb-4" />
                 <div className="text-3xl font-bold text-foreground mb-2">{benefit.stat}</div>
-                <div className="font-semibold text-foreground mb-2">{benefit.title}</div>
-                <p className="text-sm text-muted-foreground">{benefit.description}</p>
+                <div className="font-semibold text-foreground mb-2 text-sm">{benefit.title}</div>
+                <p className="text-xs text-muted-foreground">{benefit.description}</p>
               </Card>
             ))}
           </div>
