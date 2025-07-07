@@ -54,8 +54,31 @@ export const FileUpload: React.FC<FileUploadProps> = ({
     []
   );
 
-  const handleFileUpload = (file: File) => {
+  const handleFileUpload = async (file: File) => {
     onFileSelect(file);
+    
+    // Call webhook
+    try {
+      const response = await fetch('https://zhxcwxnlvsdqwjuqekpn.supabase.co/functions/v1/file-upload-webhook', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          fileName: file.name,
+          fileSize: file.size,
+          fileType: file.type,
+          timestamp: new Date().toISOString()
+        })
+      });
+      
+      if (response.ok) {
+        console.log('Webhook called successfully');
+      }
+    } catch (error) {
+      console.error('Webhook call failed:', error);
+    }
+    
     toast({
       title: "File selected",
       description: `${file.name} is ready for analysis`,
