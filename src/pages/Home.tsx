@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Link } from 'react-router-dom';
+import { FloatingShowcase } from '@/components/FloatingShowcase';
+import { AnimatedCounter } from '@/components/AnimatedCounter';
 import { 
   Bot, 
   Zap, 
@@ -19,63 +21,48 @@ import {
 } from 'lucide-react';
 
 const Home = () => {
+  const [showFloatingDemo, setShowFloatingDemo] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowFloatingDemo(true);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   const capabilities = [
     {
       icon: Bot,
       title: "Autonomous RFP Processing",
-      description: "Automatically track and process RFP request emails, parse any file format, and generate comprehensive draft responses with deep reasoning."
+      description: "Automatically track and process RFP request emails, parse any file format, and generate comprehensive draft responses with deep reasoning.",
+      delay: "animate-delay-100"
     },
     {
       icon: Brain,
       title: "Intelligent Knowledge Base",
-      description: "Leverage past successful RFPs, product specifications, and documentation to generate highly accurate and relevant responses."
+      description: "Leverage past successful RFPs, product specifications, and documentation to generate highly accurate and relevant responses.",
+      delay: "animate-delay-200"
     },
     {
       icon: Target,
       title: "Strategic AI Insights",
-      description: "Conduct competitive research, recommend executive win themes, and provide go/no-go recommendations based on deep analysis."
-    },
-    {
-      icon: Shield,
-      title: "Compliance & Quality Assurance",
-      description: "Ensure latest compliance standards and company policies are included with confidence scoring for accuracy verification."
-    },
-    {
-      icon: Users,
-      title: "Seamless Collaboration",
-      description: "Built-in project management with SME task assignment, automated reminders, and team collaboration in Microsoft Teams or Slack."
-    },
-    {
-      icon: Sparkles,
-      title: "AI ERP Specialization",
-      description: "Tailored for the evolving AI ERP space with deep understanding of module integrations, data migration, and AI functionalities."
+      description: "Conduct competitive research, recommend executive win themes, and provide go/no-go recommendations based on deep analysis.",
+      delay: "animate-delay-300"
     }
   ];
 
   const benefits = [
     {
       icon: Clock,
-      stat: "90%",
+      stat: <AnimatedCounter end={90} suffix="%" />,
       title: "Faster Completion",
       description: "Reduce RFP completion time from weeks to days"
     },
     {
       icon: TrendingUp,
-      stat: "2.5X",
-      title: "More Submissions",
+      stat: <AnimatedCounter end={2} suffix=".5X" />,
+      title: "More Submissions", 
       description: "Handle significantly more RFP opportunities"
-    },
-    {
-      icon: Target,
-      stat: "Higher",
-      title: "Win Rates",
-      description: "Increase proposal success with tailored responses"
-    },
-    {
-      icon: Users,
-      stat: "Enhanced",
-      title: "Productivity",
-      description: "Focus on strategy while AI handles content generation"
     }
   ];
 
@@ -335,6 +322,12 @@ const Home = () => {
           </div>
         </div>
       </footer>
+
+      {/* Floating Demo Showcase */}
+      <FloatingShowcase 
+        isVisible={showFloatingDemo} 
+        onClose={() => setShowFloatingDemo(false)} 
+      />
     </div>
   );
 };
